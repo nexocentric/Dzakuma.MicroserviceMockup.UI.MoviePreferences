@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMDbLib;
+﻿using System.Collections.Generic;
 using TMDbLib.Client;
-using TMDbLib.Objects.Movies;
 
 namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 {
@@ -15,14 +9,14 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 		private InterprocessDataSiphon _dataSiphon = new InterprocessDataSiphon();
 		private TMDbClient _movieDatabaseClient = new TMDbClient("");
 
-		public Dictionary<string, ValueTuple<string, string, string>> CompilePersonnelMoviePreferenceDetails(string personnelId)
+		public Dictionary<string, (string title, string overview, string posterPath)> CompilePersonnelMoviePreferenceDetails(string personnelId)
 		{
-			var compiledPreferences = new Dictionary<string, ValueTuple<string, string, string>>();
+			var compiledPreferences = new Dictionary<string, (string title, string overview, string posterPath)>();
 			var preferences = GetMoviePreferences(personnelId);
 
-			compiledPreferences["most_favorite"] = GetMovieInformation(preferences.mostFavorite);
-			compiledPreferences["second_favorite"] = GetMovieInformation(preferences.secondFavorite);
-			compiledPreferences["most_hated"] = GetMovieInformation(preferences.mostHated);
+			compiledPreferences["most_favorite_movie"] = GetMovieInformation(preferences.mostFavorite);
+			compiledPreferences["second_favorite_movie"] = GetMovieInformation(preferences.secondFavorite);
+			compiledPreferences["most_hated_movie"] = GetMovieInformation(preferences.mostHated);
 
 			return compiledPreferences;
 		}
@@ -32,9 +26,9 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 			var information = _movieDatabaseClient.SearchMovieAsync(MovieDatabaseMockup.GetMovieTitle(movieId)).Result;
 
 			return(
-				information.Results[0].Title,
-				information.Results[0].Overview,
-				information.Results[0].PosterPath
+				title: information.Results[0].Title,
+				overview: information.Results[0].Overview,
+				posterPath: information.Results[0].PosterPath
 			);
 		}
 

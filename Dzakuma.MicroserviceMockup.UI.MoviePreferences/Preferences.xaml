@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dzakuma.MicroserviceMockup.UI.MoviePreferences"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Width="640" Height="480">
     <Grid>
-        
-    </Grid>
+        <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200"/>
+	        <ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="120"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Image Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="ProfilePicture" Width="100" Height="100"/>
+
+		<TextBlock Name="EmployeeName" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Employee Name's Movie Preferences</TextBlock>
+
+		<StackPanel Grid.Column="0" Grid.Row="1" >
+			<TextBlock HorizontalAlignment="Center" Margin="5" FontSize="24">Preferences</TextBlock>
+			<TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18">Most Favorite</TextBlock>
+			<TextBlock Name="MostFavorite" HorizontalAlignment="Center" Margin="5" FontSize="14" TextWrapping="Wrap" MouseLeftButtonDown="MostFavorite_OnMouseLeftButtonDown">A movie with an extremely long name that needs to be shortened</TextBlock>
+			<TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18">Second Favorite</TextBlock>
+			<TextBlock Name="SecondFavorite" HorizontalAlignment="Center" Margin="5" FontSize="14" TextWrapping="Wrap" MouseLeftButtonDown="SecondFavorite_OnMouseLeftButtonDown">A movie with an extremely long name that needs to be shortened</TextBlock>
+			<TextBlock HorizontalAlignment="Center" Margin="5" FontSize="18">Most Hated</TextBlock>
+			<TextBlock Name="MostHated" HorizontalAlignment="Center" Margin="5" FontSize="14" TextWrapping="Wrap" MouseLeftButtonDown="MostHated_OnMouseLeftButtonDown">A movie with an extremely long name that needs to be shortened</TextBlock>
+		</StackPanel>
+		
+		<UniformGrid Grid.Column="1" Grid.Row="1">
+			<Image Name="MoviePoster" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+			<StackPanel VerticalAlignment="Center">
+				<TextBlock Name="MovieTitle" Margin="5" FontSize="22" TextWrapping="Wrap">The Title of the Movie</TextBlock>
+				<TextBlock Name="MovieOverview" Margin="10" FontSize="16" TextWrapping="Wrap">Lorem ipsum and then some extra sutff.</TextBlock>
+			</StackPanel>
+		</UniformGrid>
+	</Grid>
 </Window>

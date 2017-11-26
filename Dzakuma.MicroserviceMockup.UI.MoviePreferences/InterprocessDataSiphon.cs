@@ -42,6 +42,11 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 			}
 		}
 
+		public string DecodeString(string executablePath, params string[] arguments)
+		{
+			return DecodeProcessString(executablePath, arguments);
+		}
+
 		public string DecodeProcessString(string executablePath, params string[] arguments)
 		{
 			return TransportSafeString.Decode(ReadDataFromProcess(executablePath, arguments));
