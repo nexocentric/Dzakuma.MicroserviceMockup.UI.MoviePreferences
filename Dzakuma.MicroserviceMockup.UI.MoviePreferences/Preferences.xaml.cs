@@ -20,9 +20,14 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 	/// </summary>
 	public partial class Preferences : Window
 	{
-		public Preferences()
+		private readonly string _personnelId;
+		private readonly MovieDataSiphon _databaseConnection = new MovieDataSiphon();
+
+		public Preferences(string personnelId = null)
 		{
 			InitializeComponent();
+
+			_personnelId = personnelId ?? "1";
 		}
 	}
 }

@@ -75,7 +75,7 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 
 		public void DisplayGui()
 		{
-			var programWindow = new Preferences();
+			var programWindow = new Preferences(string.IsNullOrEmpty(_selectedId) ? null : _selectedId);
 			programWindow.Top = _top;
 			programWindow.Left = _left;
 			programWindow.Width = _width;
