@@ -31,12 +31,29 @@
 			<TextBlock Name="MostHated" HorizontalAlignment="Center" Margin="5" FontSize="14" TextWrapping="Wrap" MouseLeftButtonDown="MostHated_OnMouseLeftButtonDown">A movie with an extremely long name that needs to be shortened</TextBlock>
 		</StackPanel>
 		
-		<UniformGrid Grid.Column="1" Grid.Row="1">
-			<Image Name="MoviePoster" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-			<StackPanel VerticalAlignment="Center">
-				<TextBlock Name="MovieTitle" Margin="5" FontSize="22" TextWrapping="Wrap">The Title of the Movie</TextBlock>
-				<TextBlock Name="MovieOverview" Margin="10" FontSize="16" TextWrapping="Wrap">Lorem ipsum and then some extra sutff.</TextBlock>
-			</StackPanel>
-		</UniformGrid>
+		<Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="50*"/>
+				<ColumnDefinition Width="50*"/>
+			</Grid.ColumnDefinitions>
+			
+			<Grid Grid.Column="0" VerticalAlignment="Stretch">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				
+				<Image Grid.Row="0" Grid.Column="0" Name="MoviePoster" Margin="5"></Image>
+			</Grid>
+			
+			<Grid Grid.Column="1" VerticalAlignment="Top">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				
+				<TextBlock Grid.Row="0" Name="MovieTitle" Margin="5" VerticalAlignment="Top" FontSize="22" TextWrapping="Wrap">The Title of the Movie</TextBlock>
+				<TextBlock Grid.Row="1" Name="MovieOverview" Margin="10" VerticalAlignment="Top" FontSize="16" TextWrapping="Wrap">Lorem ipsum and then some extra sutff.</TextBlock>
+			</Grid>
+		</Grid>
 	</Grid>
 </Window>
