@@ -36,8 +36,8 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 			"Crouching Tiger Hidden Dragon",
 			"Rogue One",
 			"Wall-E",
-			"A Bee Movie",
-			"Showgirls"
+			"Gattaca",
+			"Batman Forever"
 		};
 
 		public static string GetMovieTitle(int movieId)
