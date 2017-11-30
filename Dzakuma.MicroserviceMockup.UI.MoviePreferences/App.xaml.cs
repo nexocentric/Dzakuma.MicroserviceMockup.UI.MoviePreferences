@@ -65,9 +65,9 @@ namespace Dzakuma.MicroserviceMockup.UI.MoviePreferences
 			return new OptionSet
 			{
 				{ "t|top=", "Runs diagnostic tests on this service.", o => { if (double.TryParse(o, out var test)) { _top = double.Parse(o); } } },
-				{ "l|left=", "Gets information for the person matching the specified ID.", o => { if (double.TryParse(o, out var test)) { _top = double.Parse(o); } } },
-				{ "w|width=", "Gets the movie preferences of the specified ID. ID must be specified.", o => { if (double.TryParse(o, out var test)) { _top = double.Parse(o); } } },
-				{ "h|height=", "Gets general information for the specified ID. ID must be specified.", o => { if (double.TryParse(o, out var test)) { _top = double.Parse(o); } } },
+				{ "l|left=", "Gets information for the person matching the specified ID.", o => { if (double.TryParse(o, out var test)) { _left = double.Parse(o); } } },
+				{ "w|width=", "Gets the movie preferences of the specified ID. ID must be specified.", o => { if (double.TryParse(o, out var test)) { _width = double.Parse(o); } } },
+				{ "h|height=", "Gets general information for the specified ID. ID must be specified.", o => { if (double.TryParse(o, out var test)) { _height = double.Parse(o); } } },
 				{ "d|data", "Gets a list of all personnel.", o => { if (o != null) { _outputData = true; } } },
 				{ "i|id=", "Gets a list of all personnel.", o => { if (o != null) { _selectedId = o; } } },
 			};
